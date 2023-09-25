@@ -1,41 +1,166 @@
-<!DOCTYPE html>
-
-<html>
-
-<head>
-
-  <meta charset="UTF-8">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <meta name="theme-color" content="orange" />
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-
-  <link rel="stylesheet" href="styles.css">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
-
-    <!-- google font -->
-
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-
-  <title>Live younger| Live longer- Silkwave</title>
-
-</head>
-<body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <nav class="navigation-tmp sticky">
+        <div class="nav-content-tmp">
+      
+         <a href="#" class="nav-linkimp">Home</a>
+         <a href="#" onclick="scrollToDiv(); return false;" class="nav-linkimp">Services</a>
+         <a href="#" class="nav-linkimp">About Us</a>
+         <a href=">Send Message</a>
+         <a href="https://api.whatsapp.com/send?phone=919142004623&text=hello" class="nav-linkimp">Contact</a>
+         <button id="myBtn" type="button" class="nav-button-tmp button-tmp primary-button-tmp">Book Consultation</button>
+    </nav>
     <div>
-   <b><center> 
-    <img src="data:image/jpeg;base64,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" alt="Computer man" style="width:448px;height:448px;">
-    <h1>UNDER MAINTENANCE</h1>
-</center></b>
-   </div>
+        <img src="bg-img.jpg" class="bg-image"/>
+        <div class="image-text">
+            <div class="intro">Transform Your Business <br/> Into A Digitally-Driven <br/>Organization</div>
+            <div id="typewriter-text"></div>
+            <button type="button" class="button primary-button">Book Consultation</button>
+        </div>
+    </div>
+    <section id="service-section" class="text-gray-400 bg-primary bg-gradient  body-font text-white">
+        <div class="container px-5 py-24 mx-auto flex flex-wrap">
+          <div class="flex flex-col text-center w-full mb-20">
+            <h2 class="text-xs text-black-400 tracking-widest font-medium title-font mb-1">OUR  SERVICES</h2>
+            <h1 class="sm:text-3xl text-2xl font-medium title-font text-white">We Provide Best Digital Consulting Solution For Any Size Of Businesses
+            </h1>
+          </div>
+          <div class="flex flex-wrap -m-4">
+            <div class="p-4 md:w-1/3">
+              <div class="flex rounded-lg h-full bg-gray-800  bg-opacity-60 p-8 flex-col">
+                <div class="flex items-center mb-3">
+                  <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-blue-500 text-white flex-shrink-0">
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                      <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
 
-</body>
+
+                    </svg>
+                </div>
+                <h2 class="text-white text-lg title-font font-medium">Social media management</h2>
+              </div>
+              <div class="flex-grow">
+                <p class="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.</p>
+                <a  href="smms.html" class="mt-3 text-blue-400 inline-flex items-center btn btn-light">View details
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 md:w-1/3">
+            <div class="flex rounded-lg h-full bg-gray-800 bg-opacity-60 p-8 flex-col">
+              <div class="flex items-center mb-3">
+                <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-blue-500 text-white flex-shrink-0">
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </div>
+                <h2 class="text-white text-lg title-font font-medium">Digital Marketing And Branding</h2>
+              </div>
+              <div class="flex-grow">
+                <p class="leading-relaxed text-base">Our Digital Marketing & Branding services include PPC management, content marketing,Social media marketing Search engine optimization(SEO), and Email marketing</p>
+                <a href="" class="mt-3 text-blue-400 inline-flex items-center btn btn-light">View Details
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 md:w-1/3">
+            <div class="flex rounded-lg h-full bg-gray-800 bg-opacity-60 p-8 flex-col">
+              <div class="flex items-center mb-3">
+                <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-blue-500 text-white flex-shrink-0">
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                    <circle cx="6" cy="6" r="3"></circle>
+                    <circle cx="6" cy="18" r="3"></circle>
+                    <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
+                  </svg>
+                </div>
+                <h2 class="text-white text-lg title-font font-medium">Website Designing and Development
+              </h2>
+              </div>
+              <div class="flex-grow">
+                <p class="leading-relaxed text-base">Our Website designing and development services include WordPress websites, Shopify e-commerce websites,and  <b class="text-warning">custom  websites with backend </b>
+                </p>
+                <a class="mt-3 text-blue-400 inline-flex items-center btn btn-light">view details
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                      <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>  
+      <section class="text-gray-600 body-font bg-blue-50 bg-gray-40">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="flex flex-col text-center w-full mb-20">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">What Makes us Diffrent</h1>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-base">"We take pride in our team of <b class="text-danger"> highly skilled engineers from top institutions like IITs</b>, who deliver exceptional website development services at competitive prices. Our commitment to excellence extends to our social media management, where we provide top-notch services and detailed reporting to ensure your satisfaction."</p>
+          </div>
+          <div class="flex flex-wrap -m-4 text-center">
+            <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+              <div class="border-2 border-gray-200 px-4 py-6 rounded-lg">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="text-blue-500 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
+                  <path d="M8 17l4 4 4-4m-4-5v9"></path>
+                  <path d="M20.88 18.09A5 5 0 0018 9h-1.26A8 8 0 103 16.29"></path>
+                </svg>
 
 
-  <script src="https://cdn.tailwindcss.com"></script>
+                <h2 class="title-font font-medium text-3xl text-gray-900">2.7K</h2>
+                <p class="leading-relaxed">Downloads</p>
+              </div>
+            </div>
+            <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+              <div class="border-2 border-gray-200 px-4 py-6 rounded-lg">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="text-blue-500 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
+                  <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"></path>
+                </svg>
+                <h2 class="title-font font-medium text-3xl text-gray-900">1.3K</h2>
+                <p class="leading-relaxed">Users</p>
+              </div>
+            </div>
+            <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+              <div class="border-2 border-gray-200 px-4 py-6 rounded-lg">
+                <i class="fa-brands fa-aws" style="color: #0b0e13;">web</i>
+                <h2 class="title-font font-medium text-3xl text-gray-900">20+</h2>
+                <p class="leading-relaxed">Websites</p>
+              </div>
+            </div>
+            <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+              <div class="border-2 border-gray-200 px-4 py-6 rounded-lg">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="text-blue-500 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                <h2 class="title-font font-medium text-3xl text-gray-900">46</h2>
+                <p class="leading-relaxed">Places</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
-<script src="script.js"></script>
 
+
+
+
+
+  </body>
 </html>
