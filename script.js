@@ -1,73 +1,68 @@
-// Show/hide dropdown on click
-document.querySelectorAll('.dropdown').forEach(function(element) {
-  element.addEventListener('click', function() {
-    this.classList.toggle('active');
-    var dropdownContent = this.querySelector('.dropdown-content');
-    dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
-  });
-});
+function scrollToDiv() {
+    var targetDiv = document.getElementById("service-section");
+    targetDiv.scrollIntoView({ behavior: "smooth" }); // This scrolls to the div smoothly
+}
 
-// Hide dropdown on outside click
-window.addEventListener('click', function(event) {
-  var dropdowns = document.querySelectorAll('.dropdown');
-  dropdowns.forEach(function(element) {
-    if (!element.contains(event.target)) {
-      element.classList.remove('active');
-      var dropdownContent = element.querySelector('.dropdown-content');
-      dropdownContent.style.display = 'none';
+document.addEventListener("DOMContentLoaded", function () {
+    // Your typewriter code here
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+    const text = "This is a typewriter effect example.";
+    const delay = 100;
+    const container = document.getElementById("typewriter-text");
+    let index = 0;
+    let i = text.length-1;
+
+    function type() {
+        if (index < text.length) {
+            container.textContent += text.charAt(index);
+            index++;
+            setTimeout(type, delay);
+        }
+        else if(index === text.length){
+            i = text.length-1;
+            unType(); 
+        }
     }
-  });
+    function unType() {
+        if (i > 0) {
+            container.textContent = text.slice(0,i);
+            i--;
+            console.log(text);
+            setTimeout(unType, delay);
+            
+        }
+        else if(i == 0){
+            index = 0;
+            type();
+        }
+
+    }
+
+    // Start the typing animation
+    type();
+    
 });
-//product
-
-// Animation for smooth scrolling
-var carousel = document.querySelector('.product-carousel');
-var scrollAmount = 0;
-var scrollStep = 300;
-
-function scrollLeft() {
-  scrollAmount -= scrollStep;
-  if (scrollAmount < 0) {
-    scrollAmount = 0;
-  }
-  carousel.scrollTo({
-    top: 0,
-    left: scrollAmount,
-    behavior: 'smooth'
-  });
-}
-
-function scrollRight() {
-  scrollAmount += scrollStep;
-  if (scrollAmount > carousel.scrollWidth - carousel.clientWidth) {
-    scrollAmount = carousel.scrollWidth - carousel.clientWidth;
-  }
-  carousel.scrollTo({
-    top: 0,
-    left: scrollAmount,
-    behavior: 'smooth'
-  });
-}
-
-// Add event listeners to scroll buttons
-var scrollLeftBtn = document.querySelector('.scroll-left-btn');
-var scrollRightBtn = document.querySelector('.scroll-right-btn');
-
-scrollLeftBtn.addEventListener('click', scrollLeft);
-scrollRightBtn.addEventListener('click', scrollRight);
-
-
-var slider = document.querySelector('.slider');
-var images = document.querySelectorAll('.slider-image');
-var imageIndex = 0;
-var imageWidth = images[0].clientWidth;
-
-setInterval(nextSlide, 4000);
-
-function nextSlide() {
-  imageIndex++;
-  if (imageIndex === images.length) {
-    imageIndex = 0;
-  }
-  slider.style.transform = `translateX(${-imageWidth * imageIndex}px)`;
-}
